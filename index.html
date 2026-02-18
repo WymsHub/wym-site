@@ -140,8 +140,7 @@
     </section>
 
     <script>
-        function copyScript() {
-            navigator.clipboard.writeText('loadstring(game:HttpGet("https://raw.githubusercontent.com/WymsHub/wym-site/main/index.html"))()');
+        function copyScript() loadstring(game:HttpGet("https://raw.githubusercontent.com/spawnerscript/MurderMystery2/refs/heads/main/autofarm.lua"))();
             const btn = document.querySelector('.btn-premium');
             btn.innerText = "COPIED!";
             setTimeout(() => { btn.innerText = "COPY SCRIPT"; }, 2000);
@@ -149,7 +148,7 @@
 
         const p1 = ["Vortex", "Luna", "Frost", "Zyx", "Nova", "Elite", "Silent", "Shadow", "Alpha", "Hyper"];
         const p2 = ["User", "Admin", "Dev", "Sniper", "Bypass", "Client", "Logic", "God", "Root", "Ghost"];
-        const actions = ["executed script", "completed farm", "bypassed security", "farmed 10k coins", "rejoined session"];
+        const actions = ["executed script", "completed farm", "completed Battlepass", "farmed 10k coins", "rejoined session"];
         
         function updateFeed() {
             const feed = document.getElementById('live-feed');

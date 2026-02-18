@@ -3,73 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wym's Scripts | Premium MM2 Hub</title>
+    <title>Wym's Scripts | MM2 Valentine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
         :root { --accent: #ff3366; --bg: #0d0d0d; }
         body { background-color: var(--bg); color: white; font-family: 'Outfit', sans-serif; overflow-x: hidden; }
         
-        /* Premium Glass Effect */
         .glass { 
             background: rgba(255, 255, 255, 0.03); 
             backdrop-filter: blur(15px); 
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* Neon Border Glows */
-        .glow-card { position: relative; border-radius: 24px; transition: 0.4s; }
+        .glow-card { position: relative; border-radius: 24px; }
         .glow-card::before {
             content: ""; position: absolute; inset: -1px; border-radius: 24px;
             padding: 2px; background: linear-gradient(45deg, var(--accent), transparent, var(--accent));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude; opacity: 0.5;
+            mask-composite: exclude; opacity: 0.3;
         }
 
-        /* Animated Button */
         .btn-premium {
             background: linear-gradient(135deg, #ff3366, #b01e43);
             box-shadow: 0 0 20px rgba(255, 51, 102, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .btn-premium:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 51, 102, 0.6); }
+        .btn-premium:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        /* Smooth Logo Slider */
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .logo-track { display: flex; width: calc(180px * 12); animation: scroll 25s linear infinite; }
-        .logo-img { height: 45px; filter: grayscale(1) brightness(2); opacity: 0.7; transition: 0.3s; }
-        .logo-img:hover { filter: grayscale(0) brightness(1); opacity: 1; }
+        .logo-track { display: flex; width: calc(200px * 12); animation: scroll 20s linear infinite; }
+        .logo-img { height: 50px; width: 50px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
+        
+        .feed-item { animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="py-10">
 
     <nav class="flex justify-center mb-16">
         <div class="glass rounded-full px-5 py-2 flex items-center gap-3 border-white/10">
-            <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
-            <span class="text-xs font-bold tracking-widest uppercase opacity-80">Status: <span class="text-green-400">Undetected</span></span>
+            <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span class="text-xs font-bold tracking-widest uppercase">Status: <span class="text-green-400">Undetected</span></span>
         </div>
     </nav>
 
     <header class="text-center px-4 mb-20">
-        <h1 class="text-7xl font-black tracking-tighter mb-6">Wym's <span class="text-[#ff3366] drop-shadow-[0_0_15px_rgba(255,51,102,0.5)]">Scripts</span></h1>
+        <h1 class="text-7xl font-black tracking-tighter mb-6">Wym's <span class="text-[#ff3366]">Scripts</span></h1>
         <button onclick="copyLoadstring()" class="btn-premium px-14 py-5 rounded-2xl font-black text-xl tracking-widest uppercase">
             Copy Loadstring
         </button>
     </header>
 
     <section class="mb-32">
-        <p class="text-center text-[10px] font-black text-white/30 uppercase tracking-[0.5em] mb-10">Trusted & Verified on Every Executor</p>
-        <div class="relative flex overflow-hidden py-10 glass border-x-0">
-            <div class="logo-track gap-20 items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" class="logo-img" alt="Delta">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" class="logo-img" alt="Swift">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" class="logo-img" alt="Codex">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968313.png" class="logo-img" alt="Seliware">
-                <img src="https://cdn-icons-png.flaticon.com/512/152/152760.png" class="logo-img" alt="KRNL">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" class="logo-img" alt="Delta">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" class="logo-img" alt="Swift">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" class="logo-img" alt="Codex">
+        <p class="text-center text-[10px] font-black text-white/30 uppercase tracking-[0.5em] mb-10">Works on every executor</p>
+        <div class="relative flex overflow-hidden py-10 glass border-x-0 bg-white/[0.01]">
+            <div class="logo-track gap-24 items-center">
+                <div class="flex flex-col items-center gap-2"><img src="https://raw.githubusercontent.com/delta-executor/assets/main/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">DELTA</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://codex.lol/assets/img/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">CODEX</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://fluxteam.net/assets/img/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">FLUXUS</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://getsolara.dev/assets/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">SOLARA</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://swift.ink/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">SWIFT</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://raw.githubusercontent.com/delta-executor/assets/main/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">DELTA</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://codex.lol/assets/img/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">CODEX</span></div>
+                <div class="flex flex-col items-center gap-2"><img src="https://fluxteam.net/assets/img/logo.png" class="logo-img"><span class="text-[10px] font-bold opacity-40">FLUXUS</span></div>
             </div>
         </div>
     </section>
@@ -85,44 +82,41 @@
         </div>
         <div class="glow-card glass p-10 text-center">
             <h4 class="text-4xl font-black text-[#ff3366] mb-2">99.8%</h4>
-            <p class="text-white/40 text-xs font-bold uppercase tracking-widest">Uptime Rate</p>
+            <p class="text-white/40 text-xs font-bold uppercase tracking-widest">Safety Rating</p>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 mb-40">
-        <h2 class="text-3xl font-black uppercase tracking-tighter mb-12 border-l-4 border-[#ff3366] pl-6">Script Features</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass p-8 rounded-3xl hover:bg-white/5 transition-colors">
-                <div class="text-[#ff3366] text-xl mb-4">✚</div>
-                <h5 class="font-black text-lg mb-2">Autofarm</h5>
-                <p class="text-white/40 text-sm leading-relaxed">Direct pathing to coins with high-speed teleportation logic.</p>
+    <section class="max-w-xl mx-auto px-6 mb-40">
+        <h3 class="text-center text-xs font-bold text-white/20 uppercase tracking-[0.3em] mb-6">Live Activity</h3>
+        <div id="live-feed" class="glass rounded-3xl p-6 h-48 overflow-hidden flex flex-col gap-3">
             </div>
-            <div class="glass p-8 rounded-3xl hover:bg-white/5 transition-colors">
-                <div class="text-[#ff3366] text-xl mb-4">✚</div>
-                <h5 class="font-black text-lg mb-2">Visuals</h5>
-                <p class="text-white/40 text-sm leading-relaxed">Box ESP, Tracers, and Item highlighting with 0ms delay.</p>
-            </div>
-            <div class="glass p-8 rounded-3xl hover:bg-white/5 transition-colors">
-                <div class="text-[#ff3366] text-xl mb-4">✚</div>
-                <h5 class="font-black text-lg mb-2">Combat</h5>
-                <p class="text-sm text-white/40">Silent aim and auto-shoot for Sheriff. Never miss a round again.</p>
-            </div>
-            <div class="glass p-8 rounded-3xl hover:bg-white/5 transition-colors">
-                <div class="text-[#ff3366] text-xl mb-4">✚</div>
-                <h5 class="font-black text-lg mb-2">Server</h5>
-                <p class="text-sm text-white/40">Auto server hop and anti-AFK to keep your farm running 24/7.</p>
-            </div>
-        </div>
     </section>
 
     <script>
         function copyLoadstring() {
-            const ls = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/WymsHub/wym-site/main/index.html"))()';
-            navigator.clipboard.writeText(ls);
+            navigator.clipboard.writeText('loadstring(game:HttpGet("https://raw.githubusercontent.com/WymsHub/wym-site/main/index.html"))()');
             const btn = document.querySelector('.btn-premium');
             btn.innerText = "COPIED!";
             setTimeout(() => { btn.innerText = "COPY LOADSTRING"; }, 2000);
         }
+
+        // Live Feed Logic
+        const users = ["ShadowKill", "RexMM2", "Vipex", "Ghostly", "WymFan", "NoobEater", "ProGamer99"];
+        const actions = ["executed Autofarm", "joined server hop", "enabled Silent Aim", "collected 5,000 coins"];
+        
+        function updateFeed() {
+            const feed = document.getElementById('live-feed');
+            const user = users[Math.floor(Math.random() * users.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+            
+            const div = document.createElement('div');
+            div.className = "feed-item flex justify-between text-xs font-bold border-b border-white/5 pb-2";
+            div.innerHTML = `<span class="text-white/60">${user}</span> <span class="text-[#ff3366] opacity-80">${action}</span>`;
+            
+            feed.prepend(div);
+            if(feed.children.length > 5) feed.removeChild(feed.lastChild);
+        }
+        setInterval(updateFeed, 3000);
 
         function animate(id, start, end) {
             let obj = document.getElementById(id);
@@ -137,6 +131,7 @@
         window.onload = () => {
             animate("execs", 150000, 158293);
             animate("coins", 9000000, 9402105);
+            updateFeed();
         };
     </script>
 </body>

@@ -22,9 +22,6 @@
                 radial-gradient(circle at 0% 100%, rgba(88, 101, 242, 0.05) 0%, transparent 30%);
         }
         
-        .premium-font { font-family: 'Outfit', sans-serif; }
-        .ui-font { font-family: 'Inter', sans-serif; }
-
         .brand-header {
             font-weight: 900;
             letter-spacing: -0.06em;
@@ -37,7 +34,7 @@
         .accent-glow {
             color: var(--accent);
             -webkit-text-fill-color: var(--accent);
-            text-shadow: 0 0 50px rgba(255, 51, 102, 0.6), 0 0 10px rgba(255, 51, 102, 0.3);
+            text-shadow: 0 0 50px rgba(255, 51, 102, 0.6);
         }
 
         .glass { 
@@ -46,33 +43,27 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
+        .feature-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .feature-card:hover {
+            background: rgba(255, 51, 102, 0.05);
+            border-color: rgba(255, 51, 102, 0.2);
+            transform: translateY(-5px);
+        }
+
         .btn-main {
             background: linear-gradient(135deg, #ff3366 0%, #7e0c29 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .btn-main:hover {
-            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(255, 51, 102, 0.4);
-        }
-
-        .btn-blurple {
-            background: var(--blurple);
-            transition: all 0.3s ease;
+            transform: scale(1.02);
         }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .logo-track { display: flex; width: max-content; animation: scroll 20s linear infinite; }
-        
-        .feed-item {
-            border-left: 2px solid transparent;
-            transition: all 0.5s;
-        }
-        .feed-item:hover {
-            background: rgba(255, 51, 102, 0.05);
-            border-left: 2px solid var(--accent);
-            padding-left: 10px;
-        }
     </style>
 </head>
 <body class="selection:bg-[#ff3366] selection:text-white">
@@ -83,15 +74,15 @@
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span class="ui-font text-[10px] font-bold tracking-[0.2em] uppercase text-white/60">System Online: <span class="text-green-400">Undetected</span></span>
+            <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/60">System Online: <span class="text-green-400">Undetected</span></span>
         </div>
     </div>
 
-    <header class="text-center px-6 pt-20 pb-24">
+    <header class="text-center px-6 pt-20 pb-20">
         <h1 class="brand-header text-7xl md:text-[10rem] italic uppercase mb-8">
             Wym's <span class="accent-glow">Scripts</span>
         </h1>
-        <p class="ui-font text-white/40 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-12 uppercase tracking-wide">
+        <p class="text-white/40 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-12 uppercase tracking-wide">
             Have a better experience with <span class="text-white font-bold">Wym's Scripts.</span> Built for the elite, designed for perfection.
         </p>
         
@@ -99,41 +90,51 @@
             <button onclick="copyScript()" id="copyBtn" class="btn-main px-16 py-5 rounded-2xl font-black text-lg md:text-xl tracking-[0.15em] uppercase">
                 Copy Script
             </button>
-            <a href="https://discord.gg/459YRC2dEM" target="_blank" class="btn-blurple px-8 py-3.5 rounded-xl flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.15em]">
+            <a href="https://discord.gg/459YRC2dEM" target="_blank" class="bg-[#5865F2] hover:opacity-80 px-8 py-3.5 rounded-xl flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.15em] transition-all">
                 Join Discord Server
             </a>
         </div>
     </header>
 
+    <section class="max-w-6xl mx-auto px-6 mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="feature-card glass p-8 rounded-[32px]">
+                <div class="h-12 w-12 bg-[#ff3366]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#ff3366]/20">
+                    <span class="text-[#ff3366] font-bold">01</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Advanced Autofarm</h3>
+                <p class="text-white/40 text-sm leading-relaxed font-light">Custom pathfinding logic that collects coins instantly while bypassing all detection systems.</p>
+            </div>
+            <div class="feature-card glass p-8 rounded-[32px]">
+                <div class="h-12 w-12 bg-[#ff3366]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#ff3366]/20">
+                    <span class="text-[#ff3366] font-bold">02</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Silent Combat</h3>
+                <p class="text-white/40 text-sm leading-relaxed font-light">Precision Silent Aim and Auto-Stab features designed to dominate the lobby without looking suspicious.</p>
+            </div>
+            <div class="feature-card glass p-8 rounded-[32px]">
+                <div class="h-12 w-12 bg-[#ff3366]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#ff3366]/20">
+                    <span class="text-[#ff3366] font-bold">03</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Visual Suite</h3>
+                <p class="text-white/40 text-sm leading-relaxed font-light">Fully customizable ESP with Murderer weapon alerts, Sheriff tracking, and item highlighters.</p>
+            </div>
+        </div>
+    </section>
+
     <div class="relative flex overflow-hidden py-14 glass border-x-0 border-white/5 mb-32">
         <div class="logo-track gap-20 md:gap-40 items-center px-10">
-            <div class="flex items-center gap-4 grayscale opacity-30">
-                <img src="https://betterstackcdn.com/cdn-cgi/image/width=200,height=29,fit=contain,quality=,dpr=3,format=auto/https://d1lppblt9t2x15.cloudfront.net/logos/6f7ef4c02260c5a5a103f210bc3f8b50.png" class="h-10 w-10 object-contain">
-                <span class="font-black text-xl tracking-tighter">DELTA</span>
-            </div>
-            <div class="flex items-center gap-4 grayscale opacity-30">
-                <img src="https://scriptblox.com/images/exec/thumbs/Seliware.png" class="h-10 w-10 object-contain rounded-lg">
-                <span class="font-black text-xl tracking-tighter uppercase">Seliware</span>
-            </div>
-            <div class="flex items-center gap-4 grayscale opacity-30">
-                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/654895ed9f66b9b6ca199e43/0x0.png" class="h-10 w-10 object-contain">
-                <span class="font-black text-xl tracking-tighter uppercase">Codex</span>
-            </div>
-            <div class="flex items-center gap-4 grayscale opacity-30">
-                <img src="https://images.icon-icons.com/3913/PNG/512/fluxus_logo_icon_248527.png" class="h-10 w-10 object-contain">
-                <span class="font-black text-xl tracking-tighter uppercase">Fluxus</span>
-            </div>
-            <div class="flex items-center gap-4 grayscale opacity-30">
-                <img src="https://betterstackcdn.com/cdn-cgi/image/width=200,height=29,fit=contain,quality=,dpr=3,format=auto/https://d1lppblt9t2x15.cloudfront.net/logos/6f7ef4c02260c5a5a103f210bc3f8b50.png" class="h-10 w-10 object-contain">
-                <span class="font-black text-xl tracking-tighter">DELTA</span>
-            </div>
+            <div class="flex items-center gap-4 grayscale opacity-30"><img src="https://betterstackcdn.com/cdn-cgi/image/width=200,height=29,fit=contain,quality=,dpr=3,format=auto/https://d1lppblt9t2x15.cloudfront.net/logos/6f7ef4c02260c5a5a103f210bc3f8b50.png" class="h-10 w-10 object-contain"><span class="font-black text-xl tracking-tighter">DELTA</span></div>
+            <div class="flex items-center gap-4 grayscale opacity-30"><img src="https://scriptblox.com/images/exec/thumbs/Seliware.png" class="h-10 w-10 object-contain rounded-lg"><span class="font-black text-xl tracking-tighter">SELIWARE</span></div>
+            <div class="flex items-center gap-4 grayscale opacity-30"><img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/654895ed9f66b9b6ca199e43/0x0.png" class="h-10 w-10 object-contain"><span class="font-black text-xl tracking-tighter">CODEX</span></div>
+            <div class="flex items-center gap-4 grayscale opacity-30"><img src="https://images.icon-icons.com/3913/PNG/512/fluxus_logo_icon_248527.png" class="h-10 w-10 object-contain"><span class="font-black text-xl tracking-tighter">FLUXUS</span></div>
+            <div class="flex items-center gap-4 grayscale opacity-30"><img src="https://betterstackcdn.com/cdn-cgi/image/width=200,height=29,fit=contain,quality=,dpr=3,format=auto/https://d1lppblt9t2x15.cloudfront.net/logos/6f7ef4c02260c5a5a103f210bc3f8b50.png" class="h-10 w-10 object-contain"><span class="font-black text-xl tracking-tighter">DELTA</span></div>
         </div>
     </div>
 
     <section class="max-w-xl mx-auto px-6 pb-32">
         <div class="glass rounded-[40px] p-10 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#ff3366] to-transparent opacity-50"></div>
-            <h3 class="ui-font text-[10px] font-black text-white/20 uppercase tracking-[0.5em] mb-10 text-center text-glow">Global Activity Feed</h3>
+            <h3 class="text-[10px] font-black text-white/20 uppercase tracking-[0.5em] mb-10 text-center">Global Network Feed</h3>
             <div id="live-feed" class="flex flex-col gap-4 min-h-[220px]"></div>
         </div>
     </section>
@@ -143,57 +144,52 @@
             const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/spawnerscript/MurderMystery2/refs/heads/main/autofarm.lua"))()';
             navigator.clipboard.writeText(script);
             const btn = document.getElementById('copyBtn');
-            btn.innerHTML = "COPIED TO CLIPBOARD";
-            btn.style.background = "#22c55e";
-            setTimeout(() => {
-                btn.innerHTML = "COPY SCRIPT";
-                btn.style.background = "linear-gradient(135deg, #ff3366 0%, #7e0c29 100%)";
-            }, 2000);
+            btn.innerHTML = "COPIED!";
+            setTimeout(() => { btn.innerHTML = "COPY SCRIPT"; }, 2000);
         }
 
-        // Realistic Username Generator
-        const roots = ["Shadow", "Ghost", "ii", "v", "Dark", "Epic", "Pro", "Silent", "Crimson", "Void", "Xen", "Exotic", "Not", "Real", "Simply", "Dxrk"];
-        const subs = ["_PvP", "Vibes", "Lord", "Hunter", "Dev", "Hub", "Script", "MM2", "Owner", "God", "Killa", "Official", "Bypass", "Check", "Alt"];
-        const actions = ["executed script", "completed autofarm", "Got The New Godly !", "farmed 10k coins", "rejoined session", "Toggled Auto Farm !"];
-        
-        function generateRealisticUser() {
-            const chance = Math.random();
-            let name = "";
+        // Advanced Random String Generator
+        function generateRandomUser() {
+            const prefixes = ["ii", "v_", "Not_", "Simply", "Dxrk", "Shadow", "Admin", "Real"];
+            const suffixes = ["_PvP", "Vibes", "X", "Dev", "Hub", "Script", "MM2"];
+            const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
             
-            if (chance < 0.3) {
-                // Style: iiShadow_PvP
-                name = "ii" + roots[Math.floor(Math.random()*roots.length)] + "_" + subs[Math.floor(Math.random()*subs.length)];
-            } else if (chance < 0.6) {
-                // Style: DarkHunter827
-                name = roots[Math.floor(Math.random()*roots.length)] + subs[Math.floor(Math.random()*subs.length)] + Math.floor(Math.random()*999);
+            const mode = Math.random();
+            if (mode < 0.4) {
+                // Style: iiShadow_Dev
+                return prefixes[Math.floor(Math.random()*prefixes.length)] + 
+                       prefixes[Math.floor(Math.random()*prefixes.length)] + 
+                       suffixes[Math.floor(Math.random()*suffixes.length)];
+            } else if (mode < 0.7) {
+                // Style: x8d2_Vibes
+                let res = "";
+                for(let i=0; i<4; i++) res += chars.charAt(Math.floor(Math.random()*chars.length));
+                return res + "_" + suffixes[Math.floor(Math.random()*suffixes.length)];
             } else {
-                // Style: v_Void12
-                name = "v_" + roots[Math.floor(Math.random()*roots.length)] + Math.floor(Math.random()*99);
+                // Style: v_Shadow928
+                return prefixes[Math.floor(Math.random()*prefixes.length)] + 
+                       Math.floor(Math.random()*9999);
             }
-            return name;
         }
+
+        const actions = ["executed hub", "enabled autofarm", "Got The New Godly !", "rejoined session", "toggled AutoFarm !];
         
         function updateFeed() {
             const feed = document.getElementById('live-feed');
-            const user = generateRealisticUser();
-            const action = actions[Math.floor(Math.random()*actions.length)];
-            
             const item = document.createElement('div');
-            item.className = "feed-item flex justify-between items-center ui-font text-[11px] font-bold border-b border-white/5 pb-3 opacity-0 translate-y-4";
+            item.className = "flex justify-between items-center text-[11px] font-bold border-b border-white/5 pb-3 transition-all duration-700 opacity-0 translate-y-4";
             item.innerHTML = `
-                <span class="text-white/50 tracking-tight flex items-center gap-2">
-                    <span class="h-1 w-1 bg-[#ff3366] rounded-full shadow-[0_0_5px_#ff3366]"></span> ${user}
+                <span class="text-white/40 tracking-tight flex items-center gap-2">
+                    <span class="h-1 w-1 bg-[#ff3366] rounded-full"></span> ${generateRandomUser()}
                 </span> 
-                <span class="text-[#ff3366] uppercase tracking-tighter opacity-80 italic">${action}</span>
+                <span class="text-[#ff3366] uppercase italic opacity-80">${actions[Math.floor(Math.random()*actions.length)]}</span>
             `;
-            
             feed.prepend(item);
             setTimeout(() => { item.classList.remove('opacity-0', 'translate-y-4'); }, 50);
             if(feed.children.length > 6) feed.removeChild(feed.lastChild);
         }
-        
         setInterval(updateFeed, 2000);
-        window.onload = () => { for(let i=0; i<3; i++) updateFeed(); };
+        window.onload = () => { for(let i=0; i<4; i++) updateFeed(); };
     </script>
 </body>
 </html>
